@@ -33,27 +33,27 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-slate-950/80 backdrop-blur-xl border-b border-cyan-500/10 shadow-lg shadow-cyan-500/5'
+          ? 'bg-slate-950/90 backdrop-blur-xl border-b border-cyan-500/20 shadow-lg shadow-cyan-500/10'
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           <Link
             to="/"
-            className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent tracking-tight hover:drop-shadow-[0_0_15px_rgba(6,182,212,0.5)] transition-all duration-300"
+            className="text-lg sm:text-xl font-bold bg-gradient-to-r from-cyan-400 via-emerald-400 to-blue-400 bg-clip-text text-transparent tracking-tight hover:drop-shadow-[0_0_15px_rgba(6,182,212,0.5)] transition-all duration-300"
           >
             Coreflow Automation
           </Link>
 
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className={`text-sm font-medium transition-colors hover:text-cyan-400 ${
+                className={`text-sm font-medium transition-colors hover:text-emerald-400 ${
                   location.pathname === link.to
-                    ? 'text-cyan-400'
+                    ? 'text-emerald-400'
                     : 'text-slate-300'
                 }`}
               >
@@ -62,15 +62,16 @@ export default function Navigation() {
             ))}
             <Link
               to="/contact"
-              className="px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 shadow-cyan-500/30"
+              className="px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-emerald-500 text-white text-sm font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 shadow-cyan-500/30 whitespace-nowrap"
             >
-              Request an Automation Audit
+              Get Started
             </Link>
           </div>
 
           <button
-            className="lg:hidden text-slate-300 hover:text-cyan-400 transition-colors"
+            className="lg:hidden text-slate-300 hover:text-cyan-400 transition-colors p-2 rounded-lg hover:bg-slate-800/50 active:scale-95"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -78,16 +79,16 @@ export default function Navigation() {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden bg-slate-950/95 backdrop-blur-xl border-b border-cyan-500/10">
-          <div className="px-4 pt-2 pb-6 space-y-3">
+        <div className="lg:hidden bg-slate-950/98 backdrop-blur-xl border-b border-cyan-500/20 shadow-xl">
+          <div className="px-3 pt-2 pb-5 space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className={`block px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                className={`block px-4 py-3 text-base font-medium rounded-xl transition-all active:scale-95 ${
                   location.pathname === link.to
-                    ? 'text-cyan-400 bg-cyan-500/10'
-                    : 'text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/5'
+                    ? 'text-emerald-400 bg-emerald-500/15 border-2 border-emerald-500/30'
+                    : 'text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50 border-2 border-transparent'
                 }`}
               >
                 {link.label}
@@ -95,7 +96,7 @@ export default function Navigation() {
             ))}
             <Link
               to="/contact"
-              className="block px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-semibold rounded-lg text-center hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 shadow-cyan-500/30"
+              className="block px-4 py-4 bg-gradient-to-r from-cyan-500 to-emerald-500 text-white text-base font-semibold rounded-xl text-center hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 shadow-cyan-500/30 mt-3 active:scale-95"
             >
               Request an Automation Audit
             </Link>

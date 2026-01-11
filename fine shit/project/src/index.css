@@ -5,6 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
@@ -28,5 +29,31 @@
 
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow-emerald {
+    0%, 100% {
+      box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3);
+    }
+    50% {
+      box-shadow: 0 10px 60px rgba(16, 185, 129, 0.5);
+    }
+  }
+
+  .animate-pulse-glow-emerald {
+    animation: pulse-glow-emerald 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow-orange {
+    0%, 100% {
+      box-shadow: 0 10px 40px rgba(251, 146, 60, 0.3);
+    }
+    50% {
+      box-shadow: 0 10px 60px rgba(251, 146, 60, 0.5);
+    }
+  }
+
+  .animate-pulse-glow-orange {
+    animation: pulse-glow-orange 2s ease-in-out infinite;
   }
 }

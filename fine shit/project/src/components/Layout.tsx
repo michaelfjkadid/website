@@ -19,7 +19,7 @@ export default function Layout({ children }: LayoutProps) {
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100">
       <AnimatedBackground />
       <Navigation />
-      <main className="pt-20">{children}</main>
+      <main className="pt-16 sm:pt-20">{children}</main>
       <Footer />
     </div>
   );
